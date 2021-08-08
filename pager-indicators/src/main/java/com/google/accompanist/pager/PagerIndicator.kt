@@ -90,7 +90,7 @@ fun HorizontalPagerIndicator(
                     val scrollPosition = (pagerState.currentPage + pagerState.currentPageOffset)
                         .coerceIn(0f, (pagerState.pageCount - 1).toFloat())
                     IntOffset(
-                        x = ((spacing + indicatorWidth) * scrollPosition).roundToPx(),
+                        x = ((spacing + indicatorWidth) * scrollPosition).roundToPx() + pagerState.currentPage,
                         y = 0
                     )
                 }
@@ -158,7 +158,7 @@ fun VerticalPagerIndicator(
                         .coerceIn(0f, (pagerState.pageCount - 1).toFloat())
                     IntOffset(
                         x = 0,
-                        y = ((spacing + indicatorHeight) * scrollPosition).roundToPx(),
+                        y = ((spacing + indicatorHeight) * scrollPosition).roundToPx() + pagerState.currentPage,
                     )
                 }
                 .size(width = indicatorWidth, height = indicatorHeight)
